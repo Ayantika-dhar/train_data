@@ -1,0 +1,90 @@
+nohup: ignoring input
+Run started at 2025_04_03_15_22_10_993742
+Loading entire data from preprocessing/data/features_with_graph.pkl ... Loaded.
+============================================================================================================================================
+    - note : None
+    - model : single_transformer
+    - dataset_dir : preprocessing/data
+    - features : ['asr_sentiment', 'beats', 'clip', 'face_emotion', 'ocr_sentiment', 'graph_embedding']
+    - n_frames : None
+    - restart_dir : None
+    - lr : 1e-05
+    - clip : 1.0
+    - batch_size : 32
+    - dropout : 0.1
+    - n_layers : 2
+    - d_model : 1408
+    - n_heads : 8
+    - pos_weight : -1
+    - log_step : 25000
+    - eval_step : 25000
+    - skip_first_eval : False
+    - debug : False
+    - test_only : False
+    - trn_val_tst_ratio : [0.7, 0.1, 0.2]
+    - normalize : False
+    - standardize : False
+    - no_amp : False
+    - no_cuda : False
+    - pin_memory : False
+    - num_workers : 0
+    - seed : 42
+    - reset_scaler : False
+    - overwrite_lr : False
+    - accumulate_step : 1
+    - overwrite_dropout : False
+    - max_eval_step : -1
+    - max_step : 1000000000
+    - patience : 50000
+    - fixed_position_encoding : False
+    - amp : True
+    - feature_lengths : {'asr_sentiment': 1, 'beats': 144, 'clip': 160, 'face_emotion': 80, 'ocr_sentiment': 1, 'graph_embedding': 1}
+    - feature_dims : {'asr_sentiment': 768, 'beats': 768, 'clip': 512, 'face_emotion': 768, 'ocr_sentiment': 768, 'graph_embedding': 768}
+    - all_features : ['asr_sentiment', 'beats', 'clip', 'face_emotion', 'ocr_sentiment', 'graph_embedding']
+    - labels : ['Action', 'Adventure', 'Animation', 'Biography', 'Comedy', 'Crime', 'Documentary', 'Drama', 'Family', 'Fantasy', 'History', 'Horror', 'Music', 'Musical', 'Mystery', 'Romance', 'Sci-Fi', 'Sport', 'Thriller', 'War', 'Western']
+    - n_labels : 21
+    - device : cuda
+    - main_output_dir : classification/output
+    - start_time : 2025_04_03_15_22_10_993742
+    - output_dir : classification/output/2025_04_03_15_22_10_993742
+============================================================================================================================================
+# of trainable parameters: 28,421,897 / 28,421,897
+Dataset sizes: TRN: 18488, VAL: 2642, TST: 5282 
+Using GPU
+Using automatic mixed precision
+
+--------------------------------------------------------------------------------------------------------------------------------------------
+VAL: step        0 | now: 03-04-15:22 | 0.0 h |    8 ms/batch |    0 ms/sample | n_samples:     2642 | loss  0.6482 | map 14.55 | P 12.87 | R 48.20
+--------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------
+VAL: step    25000 | now: 03-04-15:31 | 0.2 h |    7 ms/batch |    0 ms/sample | n_samples:     2642 | loss  0.2032 | map 63.42 | P 69.18 | R 51.70
+--------------------------------------------------------------------------------------------------------------------------------------------
+TRN: step    25000 | now: 03-04-15:31 | 0.2 h |    1 ms/batch |    0 ms/sample | n_samples:       32 | loss  0.1185 | map 79.85 | P 90.01 | R 55.30
+Total: 48.31 | Free: 17.90 | Used: 30.41
+----------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------
+VAL: step    50000 | now: 03-04-15:40 | 0.3 h |    7 ms/batch |    0 ms/sample | n_samples:     2642 | loss  0.3764 | map 61.89 | P 66.78 | R 52.45
+--------------------------------------------------------------------------------------------------------------------------------------------
+TRN: step    50000 | now: 03-04-15:40 | 0.3 h |    1 ms/batch |    0 ms/sample | n_samples:       32 | loss  0.0189 | map 99.23 | P 99.05 | R 92.51
+--------------------------------------------------------------------------------------------------------------------------------------------
+VAL: step    75000 | now: 03-04-15:48 | 0.4 h |    7 ms/batch |    0 ms/sample | n_samples:     2642 | loss  0.3341 | map 64.11 | P 68.92 | R 53.70
+--------------------------------------------------------------------------------------------------------------------------------------------
+TRN: step    75000 | now: 03-04-15:48 | 0.4 h |    1 ms/batch |    0 ms/sample | n_samples:       32 | loss  0.0063 | map 99.98 | P 99.90 | R 98.32
+--------------------------------------------------------------------------------------------------------------------------------------------
+VAL: step   100000 | now: 03-04-15:57 | 0.6 h |    7 ms/batch |    0 ms/sample | n_samples:     2642 | loss  0.3105 | map 65.37 | P 70.12 | R 54.18
+--------------------------------------------------------------------------------------------------------------------------------------------
+TRN: step   100000 | now: 03-04-15:57 | 0.6 h |    1 ms/batch |    0 ms/sample | n_samples:       32 | loss  0.0049 | map 99.99 | P 99.93 | R 99.12
+Validation performance didn't improve for 50000 steps. Ending training.
+--------------------------------------------------------------------------------------------------------------------------------------------
+End of training. 
+Best validation mAP: 65.37
+--------------------------------------------------------------------------------------------------------------------------------------------
+
+--- TESTING LATEST MODEL ---
+mAP: 64.52 | P: 69.91 | R: 53.42
+
+--- TESTING BEST MAP MODEL ---
+Model loaded from classification/output/2025_04_03_15_22_10_993742/best_map_model/model.pt, step 100000
+mAP: 65.37 | P: 70.12 | R: 54.18
+
+End of testing
